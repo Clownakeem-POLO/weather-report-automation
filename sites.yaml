@@ -1,0 +1,28 @@
+# Example sites config for weather_digest.
+#
+# These are real cities used as placeholders so you can run the tool straight
+# away. Swap them for your own operational sites. Each site needs a name and
+# coordinates in decimal degrees.
+
+forecast_days: 1
+
+thresholds:
+  # Outdoor work stops when any of these limits is crossed. Tune to your crews.
+  max_wind_kmh: 40      # gusty enough to stop crane and roof work
+  max_precip_mm: 10     # heavy rain over the day
+  min_temp_c: -10       # too cold to work safely
+  max_temp_c: 40        # heat risk
+
+sites:
+  - name: "London Yard (example)"
+    latitude: 51.5072
+    longitude: -0.1276
+  - name: "Rotterdam Port (example)"
+    latitude: 51.9244
+    longitude: 4.4777
+  - name: "Reykjavik Site (example)"
+    latitude: 64.1466
+    longitude: -21.9426
+  - name: "Phoenix Depot (example)"
+    latitude: 33.4484
+    longitude: -112.0740

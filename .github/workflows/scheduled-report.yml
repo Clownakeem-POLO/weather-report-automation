@@ -1,0 +1,44 @@
+# Scheduled run that shows the automation working on a timer.
+#
+# This runs the CLI in --dry-run mode on a daily cron. Dry run means it fetches
+# real forecasts and writes the report files, but never tries to email them, so
+# the job needs no secrets. That keeps the demo safe to run in a public repo.
+#
+# To make this actually email a team, remove --dry-run and add the SMTP_* values
+# as repository secrets, then pass them through as env vars on the run step.
+name: Scheduled report
+
+on:
+  schedule:
+    # 06:00 UTC every day. Cron is in UTC on GitHub Actions.
+    - cron: "0 6 * * *"
+  # Also allow running it by hand from the Actions tab.
+  workflow_dispatch:
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build the digest (dry run, no email)
+        run: python -m weather_digest run --config sites.yaml --out ./reports --dry-run
+
+      - name: Upload the report as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: weather-digest
+          path: reports/
+          if-no-files-found: error

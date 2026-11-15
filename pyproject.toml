@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "weather-digest"
+version = "1.0.0"
+description = "A daily operations weather digest built from the Open-Meteo API."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+dependencies = [
+    "requests>=2.31",
+    "PyYAML>=6.0",
+    "openpyxl>=3.1",
+]
+
+[project.scripts]
+weather-digest = "weather_digest.cli:main"
+
+[tool.setuptools]
+packages = ["weather_digest"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

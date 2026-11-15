@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Operations weather digest 2026-11-15</title>
+<style>
+  body { font-family: system-ui, Arial, sans-serif; margin: 2rem; color: #1a1a1a; }
+  h1 { font-size: 1.4rem; }
+  .summary { margin: 1rem 0; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #d0d0d0; padding: 6px 10px; text-align: left; font-size: 0.9rem; }
+  th { background: #f0f0f0; }
+  tr.stop td { background: #fdecea; }
+  tr.ok td { background: #ffffff; }
+  .badge-stop { color: #b3261e; font-weight: bold; }
+  .badge-ok { color: #1e7d34; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>Operations weather digest</h1>
+<p class="summary">Report date 2026-11-15.
+<span class="badge-stop">0</span> of 4 site-days flagged to stop work,
+<span class="badge-ok">4</span> clear.</p>
+<table>
+<thead><tr><th>Site</th><th>Date</th><th>Temp max (C)</th><th>Temp min (C)</th><th>Precip (mm)</th><th>Wind max (km/h)</th><th>Work status</th><th>Reasons</th></tr></thead>
+<tbody>
+<tr class="ok"><td>London Yard (example)</td><td>2026-11-15</td><td>11.3</td><td>3.3</td><td>2.1</td><td>16.6</td><td>OK</td><td></td></tr>
+<tr class="ok"><td>Rotterdam Port (example)</td><td>2026-11-15</td><td>10.0</td><td>2.5</td><td>0.6</td><td>21.6</td><td>OK</td><td></td></tr>
+<tr class="ok"><td>Reykjavik Site (example)</td><td>2026-11-15</td><td>-2.6</td><td>-5.8</td><td>0.0</td><td>18.0</td><td>OK</td><td></td></tr>
+<tr class="ok"><td>Phoenix Depot (example)</td><td>2026-11-15</td><td>24.2</td><td>12.6</td><td>0.0</td><td>8.7</td><td>OK</td><td></td></tr>
+</tbody>
+</table>
+<p class="summary">Forecast data from Open-Meteo. Thresholds are set in the config file.</p>
+</body>
+</html>
